@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `wedding` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `wedding`;
+CREATE DATABASE  IF NOT EXISTS `song_requestor` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `song_requestor`;
 -- MySQL dump 10.13  Distrib 5.6.24, for osx10.8 (x86_64)
 --
 -- Host: localhost    Database: wedding
