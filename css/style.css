@@ -672,13 +672,14 @@ textarea {
 }
 
 /* line 1, ../assets/scss/_base.scss */
-html, body {
+body,
+html {
   font-size: 16px;
   width: 100%;
   height: 100%;
 }
 
-/* line 8, ../assets/scss/_base.scss */
+/* line 9, ../assets/scss/_base.scss */
 input#search {
   width: 100%;
   height: 50px;
@@ -687,38 +688,56 @@ input#search {
   margin-top: 1em;
 }
 
-/* line 17, ../assets/scss/_base.scss */
+/* line 18, ../assets/scss/_base.scss */
 #results {
   margin-top: 1em;
+  display: none;
 }
-/* line 20, ../assets/scss/_base.scss */
+/* line 22, ../assets/scss/_base.scss */
+#results.active {
+  display: block;
+}
+/* line 26, ../assets/scss/_base.scss */
 #results img {
   width: 100%;
 }
-/* line 24, ../assets/scss/_base.scss */
+/* line 31, ../assets/scss/_base.scss */
+#results tr.row {
+  margin-bottom: 1em;
+  text-align: center;
+}
+/* line 37, ../assets/scss/_base.scss */
 #results .img {
   position: relative;
   text-align: center;
+  max-width: 150px;
 }
-/* line 28, ../assets/scss/_base.scss */
-#results .img .play, #results .img .pause {
+/* line 42, ../assets/scss/_base.scss */
+#results .img .pause,
+#results .img .play {
   color: #FFF;
   font-size: 3.5em;
 }
-/* line 32, ../assets/scss/_base.scss */
-#results .img .play i, #results .img .pause i {
+/* line 47, ../assets/scss/_base.scss */
+#results .img .pause i,
+#results .img .play i {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   display: block;
   left: 35%;
 }
-/* line 42, ../assets/scss/_base.scss */
+/* line 57, ../assets/scss/_base.scss */
+#results .request {
+  min-width: 50px;
+  text-align: center;
+}
+/* line 62, ../assets/scss/_base.scss */
 #results .item {
   padding: 1em;
   text-align: center;
 }
-/* line 46, ../assets/scss/_base.scss */
+/* line 66, ../assets/scss/_base.scss */
 #results .item:last-child {
   margin-bottom: 0;
 }
