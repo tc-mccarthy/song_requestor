@@ -22,7 +22,17 @@
   <body>
   	<div class="container"> <!-- start bootstrap container -->
       <input id="search" type="text" placeholder="Enter the name of the song you wish to request"></div>
-      <div id="results" class="container"></div>
+      <div id="results" class="container">
+        <table>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>Song</th>
+            <th>Artist</th>
+            <th>Album</th>
+          </tr>
+        </table>
+      </div>
   	</div>
 
   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -32,6 +42,17 @@
     <script src="js/app.min.js"></script>
     <script id="results_template" type="text/template">
       <div class='item grid'>
+          <tr>
+            <td>
+              <a class="play" href="#">
+                <img src='<%= item.album_image %>' />
+                <i class='fa fa-play-circle-o'></i>
+              </a>
+              <audio src="<%= item.preview_track %>"></audio>
+            </td>
+            <td><i class="fa fa-plus"></i></td>
+
+          </tr>
           <div class='col-1-3 col-tab-1-8 img'>
               <a class='play' href="#">
                 <img src='<%= item.album_image %>' />
