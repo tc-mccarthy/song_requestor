@@ -27165,6 +27165,7 @@ var app = {
 		});
 		$("body").on("click", "a.play", { context: _this }, _this.startTrack);
 		$("body").on("click", "a.pause", { context: _this }, _this.stopTrack);
+		$("body").on("click", "a.request", { context: _this }, _this.submitRequest);
 	},
 
 	registerTemplates: function () {
@@ -27184,7 +27185,7 @@ var app = {
 		var term = $("#search").val(),
 			_this = this;
 
-		if (term.length > 2) {
+		if (term.length >= 3) {
 			$("#results").removeClass("active");
 			$("#results table").html(_this.resultsVirgin);
 			_this.spotifyLookup(term, "track", function (data) {
@@ -27200,7 +27201,8 @@ var app = {
 				});
 
 				_.each(items, function (item) {
-					$("#results table").append(_this.template.results({ item: item }));
+					$("#results table tbody").append(_this.template.results({ item: item }));
+					$("#results table tbody tr").eq(-1).data("details", item);
 				});
 
 				$("#results").addClass("active");
@@ -27257,6 +27259,33 @@ var app = {
 	play: function (audio) {
 		audio[0].play();
 		audio.closest(".item").find(".fa.fa-play-circle-o").removeClass("fa-play-circle-o").addClass("fa-pause-circle-o");
+	},
+
+	submitRequest: function (e) {
+		e.preventDefault();
+
+		var ele = $(this),
+			_this = e.data.context,
+			row = ele.closest(".row"),
+			data = row.data("details");
+
+		data["track"] = data["track_name"];
+		data["first_name"] = "TC";
+		data["last_name"] = "McCarthy";
+
+		_this.submit(data);
+	},
+
+	submit: function (data) {
+		$.ajax({
+			url: "/request.class.php?action=request",
+			data: JSON.stringify(data),
+			dataType: "json",
+			type: "POST",
+			success: function (o) {
+				console.log(o);
+			}
+		});
 	}
 };
 

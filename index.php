@@ -47,7 +47,11 @@
               </a>
               <audio src="<%= item.preview_track %>"></audio>
             </td>
-            <td class='request'><i class="fa fa-plus"></i></td>
+            <td class='request'>
+              <a href="#" class='request'>
+                <i class="fa fa-plus"></i>
+              </a>
+            </td>
             <td><%= item.track_name %></td>
             <td><%= item.artist %></td>
             <td><%= item.album %></td>
